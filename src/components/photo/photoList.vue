@@ -99,6 +99,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+   * {
+        touch-action: pan-y;
+    }
     img[lazy=loading] {
       width: 40px;
       height: 300px;
