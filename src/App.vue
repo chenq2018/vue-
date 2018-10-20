@@ -45,10 +45,14 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   	padding-top: 40px;
+  	padding-bottom: 50px;
   	background-color: #fff;
   	// 裁剪 div 元素中内容的左/右边缘 - 如果溢出元素的内容区域的话,hidden 裁剪内容 - 不提供滚动机制。
-  	overflow-x:hidden;
-  }
+		overflow-x:hidden;
+		>.mint-header.is-fixed {
+      z-index: 3;
+    }
+	}
 
   .v-enter {
 	opacity: 0;

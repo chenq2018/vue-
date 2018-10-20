@@ -11,11 +11,11 @@ import router from './router'
 
 // 引入Mint-UI组件，官方步骤
 // import Vue from 'vue'
-// import MintUI from 'mint-ui'
+import MintUI from 'mint-ui'
 // import 'mint-ui/lib/style.css'
 // import App from './App.vue'
 
-// Vue.use(MintUI)
+Vue.use(MintUI)
 
 // new Vue({
 //   el: '#app',
@@ -23,9 +23,12 @@ import router from './router'
 // })
 
 // 引入mint-ui的header
-import { Header } from 'mint-ui';
+// import { Header, Button, Lazyload } from 'mint-ui';
 
-Vue.component(Header.name, Header);
+// Vue.component(Header.name, Header);
+// Vue.component(Button.name, Button);
+// 引入图片懒加载
+// Vue.use(Lazyload);
 
 // 引入mint-ui的css样式 node_modules中
 import 'mint-ui/lib/style.css'
@@ -48,6 +51,23 @@ Vue.use(VueResource)
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
+// 设置请求的根目录
+Vue.http.options.root = 'http://027xin.com:8899'
+// 设置提交表单的内容类型为普通表单数据格式
+Vue.http.options.emulateJSON = true
+
+// 设置时间过滤器
+import moment from 'moment'
+
+Vue.filter('dataFormat', function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss'){
+    return moment(dataStr).format(pattern) 
+})
+
+// 引入图片缩略图插件
+// vue-preview安装报错，使用vue2-preview
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
+ 
 /* eslint-disable no-new */
 var vm = new Vue({
   el: '#app',
